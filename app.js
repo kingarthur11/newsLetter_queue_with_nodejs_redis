@@ -19,7 +19,6 @@ const sendMailQueue = new Queue('sendMail', {
 app.post('/send', function(req, res, next) {
     const data = req.body
     sendMailQueue.add(data, { repeat: { cron: '0 9 8-14 * Tuesday' } });
-    return console.log(data)
 })
 
 app.post('/sendMail', function(req, res, next) {
